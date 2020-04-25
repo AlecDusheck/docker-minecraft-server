@@ -3,6 +3,7 @@
 . /start-utils
 
 log "Using custom server jar at ${CUSTOM_SERVER} ..."
+cp /tmp/${CUSTOM_SERVER} "$SERVER_PROPERTIES"
 export SERVER=${CUSTOM_SERVER}
 
 export SKIP_LOG4J_CONFIG=true

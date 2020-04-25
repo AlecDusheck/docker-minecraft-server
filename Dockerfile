@@ -33,6 +33,7 @@ RUN easy-add --file mc-server-runner --from https://github.com/itzg/mc-server-ru
 COPY mcstatus /usr/local/bin
 
 VOLUME ["/data"]
+COPY $CUSTOM_SERVER /tmp/$CUSTOM_SERVER
 COPY server.properties /tmp/server.properties
 COPY log4j2.xml /tmp/log4j2.xml
 WORKDIR /data
