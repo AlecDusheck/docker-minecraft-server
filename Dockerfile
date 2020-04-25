@@ -24,22 +24,11 @@ RUN addgroup -g 1000 minecraft \
 
 EXPOSE 25565
 
-ARG EASY_ADD_VER=0.7.1
 ADD https://github.com/itzg/easy-add/releases/download/0.7.1/easy-add_linux_amd64 /usr/bin/easy-add
 RUN chmod +x /usr/bin/easy-add
 
-RUN easy-add --var os=${TARGETOS} --var arch=${TARGETARCH}${TARGETVARIANT} \
- --var version=0.1.7 --var app=mc-monitor --file {{.app}} \
- --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
-
-RUN easy-add --var os=${TARGETOS} --var arch=${TARGETARCH}${TARGETVARIANT} \
- --var version=1.4.2 --var app=mc-server-runner --file {{.app}} \
- --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
-
-RUN easy-add --var os=${TARGETOS} --var arch=${TARGETARCH}${TARGETVARIANT} \
- --var version=0.1.1 --var app=maven-metadata-release --file {{.app}} \
- --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
-
+RUN easy-add --file mc-monitor --from https://github.com/itzg/mc-monitor/releases/download/0.5.0/mc-monitor_0.5.0_linux_arm64.tar.gz
+RUN easy-add --file mc-server-runner --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
 
 COPY mcstatus /usr/local/bin
 
