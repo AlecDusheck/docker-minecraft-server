@@ -24,6 +24,19 @@ RUN addgroup -g 1000 minecraft \
 
 EXPOSE 25565
 
+RUN easy-add --var os=${TARGETOS} --var arch=${TARGETARCH}${TARGETVARIANT} \
+ --var version=0.1.7 --var app=mc-monitor --file {{.app}} \
+ --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+
+RUN easy-add --var os=${TARGETOS} --var arch=${TARGETARCH}${TARGETVARIANT} \
+ --var version=1.4.2 --var app=mc-server-runner --file {{.app}} \
+ --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+
+RUN easy-add --var os=${TARGETOS} --var arch=${TARGETARCH}${TARGETVARIANT} \
+ --var version=0.1.1 --var app=maven-metadata-release --file {{.app}} \
+ --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+
+
 COPY mcstatus /usr/local/bin
 
 VOLUME ["/data"]
