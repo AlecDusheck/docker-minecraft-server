@@ -12,7 +12,7 @@ services:
       EULA: "TRUE"
       CONSOLE: "false"
       ENABLE_RCON: "false"
-      SERVER: "server.jar"
+      CUSTOM_SERVER: "server.jar"
     restart: always
 
 volumes:
