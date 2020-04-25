@@ -3,26 +3,17 @@ version: '3'
 
 services:
   minecraft:
-    image: itzg/minecraft-server
     ports:
       - "25565:25565"
     volumes:
       - "mc:/data"
+      - "mc:/plugins"
     environment:
       EULA: "TRUE"
       CONSOLE: "false"
-      ENABLE_RCON: "true"
-      RCON_PASSWORD: "testing"
-      RCON_PORT: 28016
+      ENABLE_RCON: "false"
+      SERVER: "server.jar"
     restart: always
-  rcon:
-    image: itzg/rcon
-    ports:
-      - "4326:4326"
-      - "4327:4327"
-    volumes:
-      - "rcon:/opt/rcon-web-admin/db"
 
 volumes:
   mc:
-  rcon:
