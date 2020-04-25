@@ -28,7 +28,7 @@ ADD https://github.com/itzg/easy-add/releases/download/0.7.1/easy-add_linux_amd6
 RUN chmod +x /usr/bin/easy-add
 
 RUN easy-add --file mc-monitor --from https://github.com/itzg/mc-monitor/releases/download/0.5.0/mc-monitor_0.5.0_linux_arm64.tar.gz
-RUN easy-add --file mc-server-runner --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+RUN easy-add --file mc-server-runner --from https://github.com/itzg/mc-server-runner/releases/download/1.4.2/mc-server-runner_1.4.2_linux_amd64.tar.gz
 
 COPY mcstatus /usr/local/bin
 
