@@ -165,4 +165,4 @@ else
   log "server.properties already created, skipping"
 fi
 
-exec /start-finalSetup05EnvVariables $@
+exec /start-finalSetup02EnvVariables $@

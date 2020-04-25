@@ -15,6 +15,5 @@ services:
       ENABLE_RCON: "false"
       CUSTOM_SERVER: "server.jar"
     restart: always
-
 volumes:
   mc:
