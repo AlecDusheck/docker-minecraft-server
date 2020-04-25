@@ -2,9 +2,9 @@
 
 . /start-utils
 
-log "Using custom server jar at ${CUSTOM_SERVER} ..."
-cp /tmp/${CUSTOM_SERVER} "$SERVER_PROPERTIES"
-export SERVER=${CUSTOM_SERVER}
+log "Using custom server jar at server.jar ..."
+cp /tmp/server.jar "server.jar"
+export SERVER="server.jar"
 
 export SKIP_LOG4J_CONFIG=true
 
